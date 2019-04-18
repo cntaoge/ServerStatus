@@ -31,7 +31,7 @@
 <br>phpmyadmin (不装数据库的话这个也可以不用装)
 <br>极速安装
 <p>
-<li>三、建立站点如：test.com  我以这个域名为例，你可以根据自己的站点路么进行修改下面命令里的网站路径</li>
+<li>三、建立站点如：test.com  我以这个域名为例，宝塔里建好的站点路径/www/wwwroot/test.com你可以根据自己的站点路么进行修改下面命令里的网站路径,修改完路径后直接复制粘贴就行了</li>
 <p>
 <br>timedatectl set-timezone Asia/Shanghai
 <br>rpm -Uvh http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
@@ -54,6 +54,17 @@
 <br>reboot
 <br>#
 <p>
+<li>四、修改配置文件：
+<br>服务器端配置文件
+  
+<br>vi /home/ServerStatus/server/config.json
+
+<br>客户端配置文件（服务器端本机的监控配置）
+
+<br>vi /home/ServerStatus/clientsclient-linux.py
+
+<br>五、其它节点安装方法
+
 
 # 相关开源项目，感谢： 
 
