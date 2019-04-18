@@ -19,8 +19,7 @@
 
 【服务端】：
 <li>一、选安装宝塔或者其它WEB应用，我这里的安装环境是CENTOS 7.X MINI安装，如果已经在架好站点在使用中了，可以直接跳过此步骤。在这以宝塔面板为例：</li>
-<br>yum install -y wget && wget -O install.sh http://download.bt.cn/install/install_6.0.sh && bash install.sh
-<br>
+<br>yum install -y wget && wget -O install.sh http://download.bt.cn/install/install_6.0.sh && bash install.sh</br>
 <li>二、配置WEB应用：</li>
 <br>LNMP 模式
 <br>Nginx 1.15 （必装）
