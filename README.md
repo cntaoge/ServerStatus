@@ -43,7 +43,7 @@
 <br>make
 <br>firewall-cmd --zone=public --add-port=35601/tcp --permanent 
 <br>firewall-cmd --reload
-<br>\cp -rf /home/ServerStatus/web/* /www/wwwroot/test.com
+<br>\cp -rf /home/ServerStatus/web/* /www/wwwroot/test.com  (需要把里面的网站路径目录修改成你自己的)
 <br>chmod -R a+x /home/ServerStatus
 <br>chmod -R 755 /home/ServerStatus
 <br>chmod 777 /home/ServerStatus/run_ss.sh
@@ -54,7 +54,10 @@
 <br>reboot
 <br>#
 <p>
-<li>四、修改配置文件：
+<li>四、3处需要修改配置文件：
+<br>
+<br>vi /home/ServerStatus/run_ss.sh   (需要把里面的网站路径目录修改成你自己的)
+<br>
 <br>服务器端配置文件
 <p> 
 <br>vi /home/ServerStatus/server/config.json
