@@ -35,7 +35,7 @@
 <p>
 <br>timedatectl set-timezone Asia/Shanghai
 <br>rpm -Uvh http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
-<br>yum update
+<br>yum update -y
 <br>yum install golang -y
 <br>cd /home
 <br>git clone -b master https://github.com/cntaoge/ServerStatus.git
@@ -56,14 +56,51 @@
 <p>
 <li>四、修改配置文件：
 <br>服务器端配置文件
-  
+<p> 
 <br>vi /home/ServerStatus/server/config.json
-
-<br>客户端配置文件（服务器端本机的监控配置）
-
+<p>
+<br>s01为本机、依次添加修改，username 名称不能与其它节点相同。
+		{
+			"username": "s01",
+			"name": "node1",
+			"type": "xen",
+			"host": "host1",
+			"location": "cn",
+			"password": "USER_DEFAULT_PASSWORD"
+		},
+<br>客户端节点配置文件（服务器端本机的监控配置）
+<p>
 <br>vi /home/ServerStatus/clientsclient-linux.py
-
-<br>五、其它节点安装方法
+<p>
+<br>节点配置修改 
+SERVER = "127.0.0.1"
+PORT = 35601
+USER = "s01"
+PASSWORD = "USER_DEFAULT_PASSWORD"
+<br>
+<li>五、其它节点安装方法,复制下面命令</li>
+<p>
+<br>timedatectl set-timezone Asia/Shanghai
+<br>cd /home
+<br>mkdir ServerStatus
+<br>cd ServerStatus
+<br>mkdir clients
+<br>cd clients
+<br>yum -y install wget
+<br>wget --no-check-certificate -qO client-linux.py 'https://raw.githubusercontent.com/cppla/ServerStatus/master/clients/client-linux.py' && nohup python client-linux.py SERVER={$SERVER} USER={$USER} PASSWORD={$PASSWORD} >/dev/null 2>&1 &
+<br>echo "nohup python /home/ServerStatus/clients/client-linux.py >/dev/null 2>&1 &" >>/etc/rc.d/rc.local
+<br>chmod +x /etc/rc.d/rc.local
+<br>vi /home/ServerStatus/clients/client-linux.py
+<p>
+修改为你主控端服务器的IP地址及二号节点的用户名、密码
+<p>
+SERVER = "127.0.0.1"
+PORT = 35601
+USER = "s01"
+PASSWORD = "USER_DEFAULT_PASSWORD"
+<p>
+设置完成 ESC + :  wq 回车存盘退出
+这里你可以选择重启或者直接运行程序，不过我建议是重启检验一下开机启动是否设置成功。
 
 
 # 相关开源项目，感谢： 
