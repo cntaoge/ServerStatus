@@ -60,23 +60,23 @@
 <br>vi /home/ServerStatus/server/config.json
 <p>
 <br>s01为本机、依次添加修改，username 名称不能与其它节点相同。
-		{
-			"username": "s01",
-			"name": "node1",
-			"type": "xen",
-			"host": "host1",
-			"location": "cn",
-			"password": "USER_DEFAULT_PASSWORD"
-		},
+<br>		{
+<br>			"username": "s01",
+<br>			"name": "node1",
+<br>			"type": "xen",
+<br>			"host": "host1",
+<br>			"location": "cn",
+<br>			"password": "USER_DEFAULT_PASSWORD"
+<br>		},
 <br>客户端节点配置文件（服务器端本机的监控配置）
 <p>
 <br>vi /home/ServerStatus/clientsclient-linux.py
 <p>
 <br>节点配置修改 
-SERVER = "127.0.0.1"
-PORT = 35601
-USER = "s01"
-PASSWORD = "USER_DEFAULT_PASSWORD"
+<br>SERVER = "127.0.0.1"
+<br>PORT = 35601
+<br>USER = "s01"
+<br>PASSWORD = "USER_DEFAULT_PASSWORD"
 <br>
 <li>五、其它节点安装方法,复制下面命令</li>
 <p>
@@ -94,10 +94,10 @@ PASSWORD = "USER_DEFAULT_PASSWORD"
 <p>
 修改为你主控端服务器的IP地址及二号节点的用户名、密码
 <p>
-SERVER = "127.0.0.1"
-PORT = 35601
-USER = "s01"
-PASSWORD = "USER_DEFAULT_PASSWORD"
+<br>SERVER = "127.0.0.1"
+<br>PORT = 35601
+<br>USER = "s01"
+<br>PASSWORD = "USER_DEFAULT_PASSWORD"
 <p>
 设置完成 ESC + :  wq 回车存盘退出
 这里你可以选择重启或者直接运行程序，不过我建议是重启检验一下开机启动是否设置成功。
