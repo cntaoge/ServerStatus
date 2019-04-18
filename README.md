@@ -19,7 +19,9 @@
 
 【服务端】：
 <li>一、选安装宝塔或者其它WEB应用，我这里的安装环境是CENTOS 7.X MINI安装，如果已经在架好站点在使用中了，可以直接跳过此步骤。在这以宝塔面板为例：</li>
+<p>
 <br>yum install -y wget && wget -O install.sh http://download.bt.cn/install/install_6.0.sh && bash install.sh</br>
+<p>
 <li>二、配置WEB应用：</li>
 <br>LNMP 模式
 <br>Nginx 1.15 （必装）
@@ -28,7 +30,7 @@
 <br>PHP 7.0 （如果不架其它站点不装也可以）
 <br>phpmyadmin (不装数据库的话这个也可以不用装)
 <br>极速安装
-<br>
+<p>
 <li>三、建立站点如：test.com  我以这个域名为例，你可以根据自己的站点路么进行修改下面命令里的网站路径</li>
 <p>
 <br>timedatectl set-timezone Asia/Shanghai
