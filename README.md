@@ -12,13 +12,13 @@
 
 # 更新说明：
 
-* 20190418, cntaoge 简化安装命令
+* 20190418, cntaoge 修改安装流程命令
 * 20190129, cppla 降低CPU占用                            
 
 # 自动部署：
 
 【服务端】：
-<li>一、选安装宝塔或者其它WEB应用，我这里的安装环境是CENTOS 7.X MINI安装，如果已经在架好站点在使用中了，可以直接跳过此步骤。在这以宝塔面板为例：</li>
+<li>一、先安装宝塔或者其它WEB应用，我这里的安装环境是CENTOS 7.X MINI安装，如果已经在架好站点在使用中了，可以直接跳过此步骤。在这以宝塔面板为例：</li>
 <p>
 <br>yum install -y wget && wget -O install.sh http://download.bt.cn/install/install_6.0.sh && bash install.sh</br>
 <p>
@@ -43,7 +43,7 @@
 <br>make
 <br>firewall-cmd --zone=public --add-port=35601/tcp --permanent 
 <br>firewall-cmd --reload
-<br>\cp -rf /home/ServerStatus/web/* /www/wwwroot/test.com  (需要把里面的网站路径目录修改成你自己的)
+<br>\cp -rf /home/ServerStatus/web/* /www/wwwroot/test.com  #(★需要把里面的网站路径目录修改成你自己的)
 <br>chmod -R a+x /home/ServerStatus
 <br>chmod -R 755 /home/ServerStatus
 <br>chmod 777 /home/ServerStatus/run_ss.sh
@@ -56,7 +56,7 @@
 <p>
 <li>四、3处需要修改配置文件：
 <br>
-<br>vi /home/ServerStatus/run_ss.sh   (需要把里面的网站路径目录修改成你自己的)
+<br>vi /home/ServerStatus/run_ss.sh   #(★需要把里面的网站路径目录修改成你自己的)
 <br>
 <br>服务器端配置文件
 <p> 
