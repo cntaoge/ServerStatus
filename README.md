@@ -44,7 +44,6 @@
 <br>firewall-cmd --zone=public --add-port=35601/tcp --permanent 
 <br>firewall-cmd --reload
 <br>\cp -rf /home/ServerStatus/web/* /www/wwwroot/test.com  #(★需要把里面的网站路径目录修改成你自己的)
-<br>chmod -R a+x /home/ServerStatus
 <br>chmod -R 755 /home/ServerStatus
 <br>chmod 777 /home/ServerStatus/run_ss.sh
 <br>echo "nohup bash /home/ServerStatus/run_ss.sh >/dev/null 2>&1 &" >>/etc/rc.d/rc.local
@@ -102,9 +101,12 @@
 <br>USER = "s01"
 <br>PASSWORD = "USER_DEFAULT_PASSWORD"
 <p>
-设置完成 ESC + :  wq 回车存盘退出
-这里你可以选择重启或者直接运行程序，不过我建议是重启检验一下开机启动是否设置成功。
-
+<br>设置完成 ESC + :  wq 回车存盘退出
+<br> 
+<br>  nohup python /home/ServerStatus/clients/client-linux.py >/dev/null 2>&1 &
+<br>  
+<br>这里你可以选择重启或者直接运行程序，不过我建议是重启检验一下开机启动是否设置成功。
+<br>
 
 # 相关开源项目，感谢： 
 
