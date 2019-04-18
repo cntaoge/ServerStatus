@@ -13,20 +13,13 @@
 # 更新说明：
 
 * 20190418, cntaoge 简化安装命令
-* 20190129, 降低CPU占用            
-* 20181221, 增加实时到三网的延迟, 鼠标移到丢包率列,tips显示        
-* 20181126, add tupd(tcp, udp, process ,thread) count for view ddcc attack    
-* 20180829, 网络情况：主机到三网(CU,CT,CM)每小时丢包率的检测
-* 20180726, 一切皆容器额,查看自动部署或autodeploy/readme
-* 20180314, 调整前端，置默认密码为，设置ip和user即可上线　　　　　　
-* 20180312, 加入失联(被照顾)检测【正常：MH361, 屏蔽：MH370】，校准虚拟化(container)流量统计异常　　　　　　
-* 20170807, 更新平均1，5，15负载, 去掉无用的IPV6信息，增加服务器总流量监控                           
+* 20190129, cppla 降低CPU占用                            
 
 # 自动部署：
 
 【服务端】：
 <li>一、选安装宝塔或者其它WEB应用，我这里的安装环境是CENTOS 7.X MINI安装，如果已经在架好站点在使用中了，可以直接跳过此步骤。在这以宝塔面板为例：</li>
-<br>yum install -y wget && wget -O install.sh http://download.bt.cn/install/install_6.0.sh && bash install.sh
+<br>yum install -y wget && wget -O install.sh http://download.bt.cn/install/install_6.0.sh && bash install.sh</br>
 <li>二、配置WEB应用：</li>
 <br>LNMP 模式
 <br>Nginx 1.15 （必装）
