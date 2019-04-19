@@ -33,13 +33,12 @@
 <br>yum install golang -y
 <br>cd /home
 <br>git clone -b master https://github.com/cntaoge/ServerStatus.git
+<br>chmod -R 755 /home/ServerStatus/
 <br>cd ServerStatus/server
 <br>make
 <br>firewall-cmd --zone=public --add-port=35601/tcp --permanent 
 <br>firewall-cmd --reload
 <br>\cp -rf /home/ServerStatus/web/* /www/wwwroot/test.com  #(★需要把里面的网站路径目录修改成你自己的)
-<br>chmod -R 755 /home/ServerStatus
-<br>chmod 777 /home/ServerStatus/run_ss.sh
 <br>echo "nohup bash /home/ServerStatus/run_ss.sh >/dev/null 2>&1 &" >>/etc/rc.d/rc.local
 <br>chmod +x /etc/rc.d/rc.local
 <br>echo "nohup python /home/ServerStatus/clients/client-linux.py >/dev/null 2>&1 &" >>/etc/rc.d/rc.local
@@ -82,6 +81,7 @@
 <br>timedatectl set-timezone Asia/Shanghai
 <br>cd /home
 <br>mkdir ServerStatus
+<br>chmod -R 755 /home/ServerStatus/
 <br>cd ServerStatus
 <br>mkdir clients
 <br>cd clients
@@ -89,7 +89,6 @@
 <br>wget --no-check-certificate -qO client-linux.py 'https://raw.githubusercontent.com/cppla/ServerStatus/master/clients/client-linux.py' && nohup python client-linux.py SERVER={$SERVER} USER={$USER} PASSWORD={$PASSWORD} >/dev/null 2>&1 &
 <br>echo "nohup python /home/ServerStatus/clients/client-linux.py >/dev/null 2>&1 &" >>/etc/rc.d/rc.local
 <br>chmod +x /etc/rc.d/rc.local
-<br>chmod 755 /home/ServerStatus/clients/client-linux.py
 <br>vi /home/ServerStatus/clients/client-linux.py
 <p>
 修改为你主控端服务器的IP地址及二号节点的用户名、密码
