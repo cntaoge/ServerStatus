@@ -3,20 +3,14 @@
 <br>* ServerStatus中文版是一个酷炫高逼格的云探针、云监控、服务器云监控、多服务器探针~。
 <br>* 在线演示：https://tz.cloudcpp.com    
 <br>与本人交流联系方法在主站上：www.gxnnhxy.com
-
 # 目录介绍：
-
 <br>* autodeploy    自动部署
 <br>* clients       客户端文件
 <br>* server        服务端文件
 <br>* web           网站文件  
-
 # 更新说明：
-
 <br>* 20190418, cntaoge 修改安装流程命令                        
-
 # 自动部署：
-
 【服务端】：
 <li>一、先安装宝塔或者其它WEB应用，我这里的安装环境是CENTOS 7.X MINI安装，如果已经在架好站点在使用中了，可以直接跳过此步骤。在这以宝塔面板为例：</li>
 <p>
@@ -33,8 +27,6 @@
 <p>
 <li>三、建立站点如：test.com  我以这个域名为例，宝塔里建好的站点路径/www/wwwroot/test.com你可以根据自己的站点路么进行修改下面命令里的网站路径,修改完路径后直接复制粘贴就行了</li>
 <p>
-  ```javascript
-  // An highlighted block
 <br>timedatectl set-timezone Asia/Shanghai
 <br>rpm -Uvh http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
 <br>yum update -y
@@ -54,7 +46,6 @@
 <br>chmod +x /etc/rc.d/rc.local
 <br>reboot
 <br>#
-  ```
 <p>
 <li>四、3处需要修改配置文件：
 <br>
@@ -120,7 +111,6 @@
 <br>
 
 # 相关开源项目，感谢： 
-
 * cppla：https://github.com/cppla/ServerStatus
 * ServerStatus：https://github.com/BotoX/ServerStatus
 * mojeda: https://github.com/mojeda 
