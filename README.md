@@ -45,14 +45,14 @@ chmod +x /etc/rc.d/rc.local
 ok</pre>
 <p>
 <li>四、共有3处需要修改配置文件：
+<br>①需要把里面的网站路径目录修改成你自己的
 <br>
-<pre>vi /home/ServerStatus/run_ss.sh </pre>  #(①需要把里面的网站路径目录修改成你自己的)
+<pre>vi /home/ServerStatus/run_ss.sh </pre>  
 <br>
-<br>②前端面板 服务器配置文件
+<br>②前端面板 服务器配置文件 s01为本机、依次添加修改，username 名称不能与其它节点相同。
 <p> 
 <pre>vi /home/ServerStatus/server/config.json</pre>
 <p>
-<br>s01为本机、依次添加修改，username 名称不能与其它节点相同。
 <pre>		{
 			"username": "s01",  #后端连接用户名，前后端要一致
 			"name": "node1",   #节点名称
@@ -61,8 +61,8 @@ ok</pre>
 			"location": "cn",  #位置
 			"password": "USER_DEFAULT_PASSWORD"    #后端节点连接密码，前端后端密码要一致
 		},</pre>
-<br>③后端节点配置文件（服务器端本机的监控配置）（具体要修改配置文件里的什么内容看下面的后端节点配置说明）
 <p>
+<br>③后端节点配置文件（服务器端本机的监控配置）（具体要修改配置文件里的什么内容看下面的后端节点配置说明）
 <pre>vi /home/ServerStatus/clientsclient-linux.py</pre>
 <p>
 <br> 启动前端面板新进程命令（后台运行）：          
@@ -104,18 +104,17 @@ ok</pre>
 <p>
 <br>设置完成 ESC + :  wq 回车存盘退出
 <br> 
-<br> 节点配置完连接参数后，这里你可以选择重启或者直接运行程序，不过我建议是重启检验一下开机启动是否设置成功。启去进程，在面板上就会显示出来了
+<br> 节点配置完连接参数后，这里你可以选择重启或者直接运行程序，不过我建议是重启检验一下开机启动是否设置成功。启动进程，在面板上就会显示出来了
 <br> 启动后端节点新进程命令（后台运行）： 
 <pre>nohup python /home/ServerStatus/clients/client-linux.py >/dev/null 2>&1 &</pre>
 <br> 调试监控状态可直接使用命令，ctrl+c 中止：
 <pre>python /home/ServerStatus/clients/client-linux.py</pre>
-<br> 查看所有进程信息：
-<pre>ps e -A</pre>    命令间有空格，大小写之区别
-<br> 终止进程：
-<pre>kill 1234</pre>   命令间有空格然后加所属的进程ID号
-<br> 查看指定进程：
-<pre>ps 1234</pre>   命令间有空格然后加所属的进程ID号
-<br>
+<br> 查看所有进程信息：    命令间有空格，大小写之区别
+<pre>ps e -A</pre>
+<br> 终止进程：  命令间有空格然后加所属的进程ID号
+<pre>kill 1234</pre> 
+<br> 查看指定进程：命令间有空格然后加所属的进程ID号
+<pre>ps 1234</pre>   
 <br>
 
 # 相关开源项目，感谢： 
