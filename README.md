@@ -103,7 +103,8 @@
 <p>
 <br>设置完成 ESC + :  wq 回车存盘退出
 <br> 
-<br>  nohup python /home/ServerStatus/clients/client-linux.py >/dev/null 2>&1 &
+<br> 启动面板新进程命令： nohup bash /home/ServerStatus/run_ss.sh >/dev/null 2>&1 &
+<br> 启动节点新进程命令： nohup python /home/ServerStatus/clients/client-linux.py >/dev/null 2>&1 &
 <br>  
 <br>这里你可以选择重启或者直接运行程序，不过我建议是重启检验一下开机启动是否设置成功。
 <br>
