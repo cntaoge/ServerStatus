@@ -29,7 +29,6 @@
 <p>
 <br>timedatectl set-timezone Asia/Shanghai
 <br>rpm -Uvh http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
-<br>yum update -y
 <br>yum install golang -y
 <br>cd /home
 <br>git clone -b master https://github.com/cntaoge/ServerStatus.git
