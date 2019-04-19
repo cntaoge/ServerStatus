@@ -10,7 +10,7 @@
 <br>* web           网站文件  
 # 更新说明：
 <br>* 20190418, cntaoge 修改安装流程命令                        
-# 自动部署：
+
 【服务端】：
 <li>一、先安装宝塔或者其它WEB应用，我这里的安装环境是CENTOS 7.X MINI安装，如果已经在架好站点在使用中了，可以直接跳过此步骤。在这以宝塔面板为例：</li>
 <p>
@@ -42,7 +42,7 @@
 <br>chmod +x /etc/rc.d/rc.local
 <br>echo "nohup python /home/ServerStatus/clients/client-linux.py >/dev/null 2>&1 &" >>/etc/rc.d/rc.local
 <br>chmod +x /etc/rc.d/rc.local
-<br>#
+<br>ok
 <p>
 <li>四、共有3处需要修改配置文件：
 <br>
@@ -87,9 +87,11 @@
 <br>wget --no-check-certificate -qO client-linux.py 'https://raw.githubusercontent.com/cppla/ServerStatus/master/clients/client-linux.py' && nohup python client-linux.py SERVER={$SERVER} USER={$USER} PASSWORD={$PASSWORD} >/dev/null 2>&1 &
 <br>echo "nohup python /home/ServerStatus/clients/client-linux.py >/dev/null 2>&1 &" >>/etc/rc.d/rc.local
 <br>chmod +x /etc/rc.d/rc.local
-<br>vi /home/ServerStatus/clients/client-linux.py
+<br>ok
 <p>
-修改为你主控端服务器的IP地址及二号节点的用户名、密码
+<br>修改为你主控端服务器的IP地址及二号节点的用户名、密码
+<br>
+<br>vi /home/ServerStatus/clients/client-linux.py
 <p>
 <br>SERVER = "127.0.0.1"    #前端面板服务器IP地址或者域名
 <br>PORT = 35601      #前端面板服务器设置的监听端口
