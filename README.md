@@ -32,7 +32,7 @@
 <br>yum install golang -y
 <br>cd /home
 <br>git clone -b master https://github.com/cntaoge/ServerStatus.git
-<br>chmod -R 755 /home/ServerStatus/
+<br>chmod -R 775 /home/ServerStatus/
 <br>cd ServerStatus/server
 <br>make
 <br>firewall-cmd --zone=public --add-port=35601/tcp --permanent 
@@ -78,7 +78,7 @@
 <br>timedatectl set-timezone Asia/Shanghai
 <br>cd /home
 <br>mkdir ServerStatus
-<br>chmod -R 755 /home/ServerStatus/
+<br>chmod -R 775 /home/ServerStatus/
 <br>cd ServerStatus
 <br>mkdir clients
 <br>cd clients
