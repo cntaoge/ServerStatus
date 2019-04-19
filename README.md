@@ -33,6 +33,8 @@
 <p>
 <li>三、建立站点如：test.com  我以这个域名为例，宝塔里建好的站点路径/www/wwwroot/test.com你可以根据自己的站点路么进行修改下面命令里的网站路径,修改完路径后直接复制粘贴就行了</li>
 <p>
+  ```javascript
+  // An highlighted block
 <br>timedatectl set-timezone Asia/Shanghai
 <br>rpm -Uvh http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
 <br>yum update -y
@@ -52,6 +54,7 @@
 <br>chmod +x /etc/rc.d/rc.local
 <br>reboot
 <br>#
+  ```
 <p>
 <li>四、3处需要修改配置文件：
 <br>
