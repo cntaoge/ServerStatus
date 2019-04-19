@@ -1,20 +1,19 @@
 # ServerStatus中文版：   
 
-* ServerStatus中文版是一个酷炫高逼格的云探针、云监控、服务器云监控、多服务器探针~。
-* 在线演示：https://tz.cloudcpp.com    
+<br>* ServerStatus中文版是一个酷炫高逼格的云探针、云监控、服务器云监控、多服务器探针~。
+<br>* 在线演示：https://tz.cloudcpp.com    
 <br>与本人交流联系方法在主站上：www.gxnnhxy.com
 
 # 目录介绍：
 
-* autodeploy    自动部署
-* clients       客户端文件
-* server        服务端文件
-* web           网站文件  
+<br>* autodeploy    自动部署
+<br>* clients       客户端文件
+<br>* server        服务端文件
+<br>* web           网站文件  
 
 # 更新说明：
 
-* 20190418, cntaoge 修改安装流程命令
-* 20190129, cppla 降低CPU占用                            
+<br>* 20190418, cntaoge 修改安装流程命令                        
 
 # 自动部署：
 
@@ -98,7 +97,6 @@
 <br>chmod +x /etc/rc.d/rc.local
 <br>chmod 755 /home/ServerStatus/clients/client-linux.py
 <br>vi /home/ServerStatus/clients/client-linux.py
-<br>#
 <p>
 修改为你主控端服务器的IP地址及二号节点的用户名、密码
 <p>
