@@ -80,6 +80,9 @@
 <br>USER = "s01"
 <br>PASSWORD = "USER_DEFAULT_PASSWORD"
 <br>
+<br> 启动面板新进程命令： nohup bash /home/ServerStatus/run_ss.sh >/dev/null 2>&1 &
+<br> 启动节点新进程命令： nohup python /home/ServerStatus/clients/client-linux.py >/dev/null 2>&1 &
+<p>
 <li>五、其它节点安装方法,复制下面命令</li>
 <p>
 <br>timedatectl set-timezone Asia/Shanghai
@@ -92,6 +95,7 @@
 <br>wget --no-check-certificate -qO client-linux.py 'https://raw.githubusercontent.com/cppla/ServerStatus/master/clients/client-linux.py' && nohup python client-linux.py SERVER={$SERVER} USER={$USER} PASSWORD={$PASSWORD} >/dev/null 2>&1 &
 <br>echo "nohup python /home/ServerStatus/clients/client-linux.py >/dev/null 2>&1 &" >>/etc/rc.d/rc.local
 <br>chmod +x /etc/rc.d/rc.local
+<br>chmod 755 /home/ServerStatus/clients/client-linux.py
 <br>vi /home/ServerStatus/clients/client-linux.py
 <p>
 修改为你主控端服务器的IP地址及二号节点的用户名、密码
