@@ -97,6 +97,7 @@
 <br>chmod +x /etc/rc.d/rc.local
 <br>chmod 755 /home/ServerStatus/clients/client-linux.py
 <br>vi /home/ServerStatus/clients/client-linux.py
+<br>#
 <p>
 修改为你主控端服务器的IP地址及二号节点的用户名、密码
 <p>
