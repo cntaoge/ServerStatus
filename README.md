@@ -42,14 +42,13 @@
 <br>chmod +x /etc/rc.d/rc.local
 <br>echo "nohup python /home/ServerStatus/clients/client-linux.py >/dev/null 2>&1 &" >>/etc/rc.d/rc.local
 <br>chmod +x /etc/rc.d/rc.local
-<br>reboot
 <br>#
 <p>
-<li>四、3处需要修改配置文件：
+<li>四、共有3处需要修改配置文件：
 <br>
-<br>vi /home/ServerStatus/run_ss.sh   #(★需要把里面的网站路径目录修改成你自己的)
+<br>vi /home/ServerStatus/run_ss.sh   #(①需要把里面的网站路径目录修改成你自己的)
 <br>
-<br>①前端面板 服务器配置文件
+<br>②前端面板 服务器配置文件
 <p> 
 <br>vi /home/ServerStatus/server/config.json
 <p>
@@ -62,7 +61,7 @@
 <br>			"location": "cn",  #位置
 <br>			"password": "USER_DEFAULT_PASSWORD"    #后端节点连接密码，前端后端密码要一致
 <br>		},
-<br>②.后端节点配置文件（服务器端本机的监控配置）
+<br>③后端节点配置文件（服务器端本机的监控配置）
 <p>
 <br>vi /home/ServerStatus/clientsclient-linux.py
 <p>
@@ -73,7 +72,7 @@
 <br> 查看所有进程信息：ps e -A    命令间有空格，大小写之区别
 <br> 终止进程：kill 1234   命令间有空格然后加所属的进程ID号
 <br> 查看指定进程：ps 1234   命令间有空格然后加所属的进程ID号
-<br> 
+<br> 都检查完没问题了就可以启动进程了输入你的网址查看了。如果方便的话最好能重启看看自动加载是否成功。
 <p>
 <li>五、其它后端节点安装方法,复制下面命令</li>
 <p>
