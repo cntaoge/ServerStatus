@@ -29,6 +29,8 @@
 <p>
 <pre>timedatectl set-timezone Asia/Shanghai
 rpm -Uvh http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
+yum update
+yum install git -y
 yum install golang -y
 cd /home
 git clone -b master https://github.com/cntaoge/ServerStatus.git
@@ -81,16 +83,13 @@ ok</pre>
 <li>五、其它后端节点安装方法,复制下面命令</li>
 <p>
 <pre>timedatectl set-timezone Asia/Shanghai
-rpm -Uvh http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
+rpm -Uvh http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
+yum update
+yum install git -y
 yum install golang -y
 cd /home
-mkdir ServerStatus
+git clone -b master https://github.com/cntaoge/ServerStatus.git
 chmod -R 755 /home/ServerStatus/
-cd ServerStatus
-mkdir clients
-cd clients
-yum -y install wget
-wget --no-check-certificate -qO client-linux.py 'https://raw.githubusercontent.com/cppla/ServerStatus/master/clients/client-linux.py' && nohup python client-linux.py SERVER={$SERVER} USER={$USER} PASSWORD={$PASSWORD} >/dev/null 2>&1 &
 echo "nohup python /home/ServerStatus/clients/client-linux.py >/dev/null 2>&1 &" >>/etc/rc.d/rc.local
 chmod +x /etc/rc.d/rc.local
 ok</pre>
