@@ -81,6 +81,8 @@ ok</pre>
 <li>五、其它后端节点安装方法,复制下面命令</li>
 <p>
 <pre>timedatectl set-timezone Asia/Shanghai
+rpm -Uvh http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
+yum install golang -y
 cd /home
 mkdir ServerStatus
 chmod -R 755 /home/ServerStatus/
