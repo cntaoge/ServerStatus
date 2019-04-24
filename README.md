@@ -59,14 +59,15 @@ vi /home/ServerStatus/run_ss.sh
 			"location": "阿里云香港",  #位置
 			"password": "USER_DEFAULT_PASSWORD"    #后端节点连接密码，前端后端密码要一致
 		},</pre>
-<br>③修改前端面板服务器端的配置文件/server/config.json 后需要重启服务器才能生效。比如新增加后端客户机节点、修改节点名称密码等。所以最好你一次修改完。一次重启就够了，否则你先使用调试命令<pre>bash /home/ServerStatus/run_ss.sh</pre>，随时ctrl+c 中止，不修改了再启用常驻进程命令<pre>nohup bash /home/ServerStatus/run_ss.sh >/dev/null 2>&1 &</pre>
-<br>④查看所有进程信息：
-<pre>ps e -A</pre>    命令间有空格，大小写之区别
-<br>⑤终止进程：
-<pre>kill 1234</pre>   命令间有空格然后加所属的进程ID号
-<br>⑥查看指定进程：
-<pre>ps 1234</pre>   命令间有空格然后加所属的进程ID号
+<br>③修改前端面板服务器端的配置文件/server/config.json 后需要重启服务器才能生效。比如新增加后端客户机节点、修改节点名称密码等。所以最好你一次修改完。一次重启就够了，否则你先使用调试命令，随时ctrl+c 中止，不修改了再启用常驻进程命令<pre>nohup bash /home/ServerStatus/run_ss.sh >/dev/null 2>&1 &</pre>
+<br>④查看所有进程信息：   命令间有空格，大小写之区别
+<pre>ps e -A</pre> 
+<br>⑤终止进程：  命令间有空格然后加所属的进程ID号
+<pre>kill 1234</pre> 
+<br>⑥查看指定进程：   命令间有空格然后加所属的进程ID号
+<pre>ps 1234</pre>
 <p>
+	
 【客户端】（客户端程序在ServerStatus/clients下）：
 <br>注意：CentOS6系统默认的Python版本是2.6，版本太低，使用客户端会出问题，请升级Python或者更换7.x版本系统。
 <li>一、客户端(后端)节点安装方法,直接复制下面命令到SSH客户端命令行里</li>
