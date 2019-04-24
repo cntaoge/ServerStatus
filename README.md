@@ -1,7 +1,7 @@
 # ServerStatus中文版：   
-<br>* ServerStatus中文版是一个酷炫高逼格的云探针、云监控、服务器云监控、多服务器探针~。
-<br>* 在线演示：https://tz.cloudcpp.com    
-<br>本人交流联系方法在主站上：www.gxnnhxy.com
+* ServerStatus中文版是一个酷炫高逼格的云探针、云监控、服务器云监控、多服务器探针~。
+* 在线演示：https://tz.cloudcpp.com    
+本人交流联系方法在主站上：www.gxnnhxy.com
 # 目录介绍：
 * autodeploy    自动部署
 * clients       客户端文件
@@ -12,18 +12,16 @@
 【服务端】：
 <li>一、先安装宝塔或者其它WEB应用，我这里的安装环境是CENTOS 7.X MINI安装，如果已经在架好站点在使用中了，可以直接跳过此步骤。在这以宝塔面板为例：</li>
 <pre>yum install -y wget && wget -O install.sh http://download.bt.cn/install/install_6.0.sh && bash install.sh</pre></br>
-<p>
 <li>二、配置WEB应用：</li>
-<br>LNMP 模式
-<br>Nginx 1.15 （必装）
-<br>Ftpd (可不装)
-<br>MySQL 5.6 (如果不架其它站点数据库也可以不用装)
-<br>PHP 7.0 （如果不架其它站点不装也可以）
-<br>phpmyadmin (不装数据库的话这个也可以不用装)
-<br>极速安装
-<p>
+LNMP 模式
+Nginx 1.15 （必装）
+Ftpd (可不装)
+MySQL 5.6 (如果不架其它站点数据库也可以不用装)
+PHP 7.0 （如果不架其它站点不装也可以）
+phpmyadmin (不装数据库的话这个也可以不用装)
+极速安装
 <li>三、在宝塔面板上建立站点如：test.com  我以这个域名为例，宝塔里建好的站点路径为/www/wwwroot/test.com你可以根据自己的站点路径进行修改下面命令里的网站路径,修改完路径后直接复制粘贴就行了</li>
-<br> 把下面的命令全部复制到记事本里进行编辑，把三处网站的路径修改成你自己的。修改好之后粘贴到SSH客户端命令行上。
+把下面的命令全部复制到记事本里进行编辑，把三处网站的路径修改成你自己的。修改好之后粘贴到SSH客户端命令行上。
 <pre>timedatectl set-timezone Asia/Shanghai
 rpm -Uvh http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
 yum update
@@ -44,7 +42,6 @@ chmod +x /etc/rc.d/rc.local
 echo "nohup python /home/ServerStatus/clients/client-linux.py >/dev/null 2>&1 &" >>/etc/rc.d/rc.local
 chmod +x /etc/rc.d/rc.local#
 </pre>
-<p>
 <li>四、前端面板需要修改配置文件：
 ①需要把run_ss.sh里面的网站路径目录修改成你自己的" --web-dir=/www/wwwroot/test.com "
 <pre>vi /home/ServerStatus/run_ss.sh </pre>  
@@ -54,7 +51,7 @@ chmod +x /etc/rc.d/rc.local#
 <pre>nohup python /home/ServerStatus/clients/client-linux.py >/dev/null 2>&1 &</pre>
 ④到这里，你可以使用你的站点域名进行访问了：http://你绑定的域名
 <li>五、前端面板配置其它说明：
-<br>①调试前时可直接使用调试命令，用ctrl+c 中止：   
+①调试前时可直接使用调试命令，用ctrl+c 中止：   
 <pre>bash /home/ServerStatus/run_ss.sh</pre>	
 ②前端面板服务器配置文件 s01为本机、依次添加修改，username 名称不能与其它节点相同。
 <pre>vi /home/ServerStatus/server/config.json</pre>
@@ -73,10 +70,8 @@ chmod +x /etc/rc.d/rc.local#
 <pre>kill 1234</pre>   命令间有空格然后加所属的进程ID号
 ⑥查看指定进程：
 <pre>ps 1234</pre>   命令间有空格然后加所属的进程ID号
-<p>
 【客户端】：
 <li>一、客户端(后端)节点安装方法,直接复制下面命令到SSH客户端命令行里</li>
-<p>
 <pre>timedatectl set-timezone Asia/Shanghai
 yum install git -y
 cd /home
@@ -85,22 +80,19 @@ chmod +x /home/ServerStatus/clients/client-linux.py
 echo "nohup python /home/ServerStatus/clients/client-linux.py >/dev/null 2>&1 &" >>/etc/rc.d/rc.local
 chmod +x /etc/rc.d/rc.local
 vi /home/ServerStatus/clients/client-linux.py</pre>
-<p>
 <li>二、修改节点的配置文件里的SERVER =为你主控端服务器的IP地址及节点的用户名、密码</li>
 <pre>vi /home/ServerStatus/clients/client-linux.py</pre>
-<p>
-<br>SERVER = "127.0.0.1"    #前端面板服务器IP地址或者域名
-<br>PORT = 35601      #前端面板服务器设置的监听端口
-<br>USER = "s02"    #前端面板里为这台后端节点分配的用户名
-<br>PASSWORD = "USER_DEFAULT_PASSWORD"    #前端面板里为这台后端节点分配的密码
-	
+<code>SERVER = "127.0.0.1"    #前端面板服务器IP地址或者域名
+PORT = 35601      #前端面板服务器设置的监听端口
+USER = "s02"    #前端面板里为这台后端节点分配的用户名
+PASSWORD = "USER_DEFAULT_PASSWORD"    #前端面板里为这台后端节点分配的密码
+</code>	
 设置完成 ESC + :  wq 回车存盘退出
-<br> 节点配置完连接参数后，这里你可以选择重启或者直接运行程序，不过我建议是重启检验一下开机启动是否设置成功。启动进程，在面板上就会显示出来了
-<br> 启动后端节点新进程命令（后台运行）： 
+<节点配置完连接参数后，这里你可以选择重启或者直接运行程序，不过我建议是重启检验一下开机启动是否设置成功。启动进程，在面板上就会显示出来了
+<启动后端节点新进程命令（后台运行）： 
 <pre>nohup python /home/ServerStatus/clients/client-linux.py >/dev/null 2>&1 &</pre>
 <li>三、其它相关说明：</li>
-<p>
-<br> 调试监控状态可直接使用命令，ctrl+c 中止：
+调试监控状态可直接使用命令，ctrl+c 中止：
 <pre>python /home/ServerStatus/clients/client-linux.py</pre>
 
 # 相关开源项目，感谢： 
