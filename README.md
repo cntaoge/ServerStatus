@@ -25,8 +25,8 @@
 <br>phpmyadmin (不装数据库的话这个也可以不用装)
 <br>极速安装
 <p>
-<li>三、建立站点如：test.com  我以这个域名为例，宝塔里建好的站点路径/www/wwwroot/test.com你可以根据自己的站点路么进行修改下面命令里的网站路径,修改完路径后直接复制粘贴就行了</li>
-<p>
+<li>三、在宝塔面板上建立站点如：test.com  我以这个域名为例，宝塔里建好的站点路径为/www/wwwroot/test.com你可以根据自己的站点路径进行修改下面命令里的网站路径,修改完路径后直接复制粘贴就行了</li>
+<br> 把下面的命令全部复制到记事本里进行编辑，把三处网站的路径修改成你自己的。修改好之后粘贴到SSH客户端命令行上。
 <pre>timedatectl set-timezone Asia/Shanghai
 rpm -Uvh http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
 yum update
@@ -39,7 +39,9 @@ cd ServerStatus/server
 make
 firewall-cmd --zone=public --add-port=35601/tcp --permanent 
 firewall-cmd --reload
-\cp -rf /home/ServerStatus/web/* /www/wwwroot/test.com  #(★需要把里面的网站路径目录修改成你自己的)
+\cp -rf /home/ServerStatus/web/* /www/wwwroot/test.com   #(★需要把里面的网站路径目录修改成你自己的)
+chown -R www:www /www/wwwroot/test.com    #(★需要把里面的网站路径目录修改成你自己的)
+chmod -R a+x /www/wwwroot/test.com     #(★需要把里面的网站路径目录修改成你自己的)
 echo "nohup bash /home/ServerStatus/run_ss.sh >/dev/null 2>&1 &" >>/etc/rc.d/rc.local
 chmod +x /etc/rc.d/rc.local
 echo "nohup python /home/ServerStatus/clients/client-linux.py >/dev/null 2>&1 &" >>/etc/rc.d/rc.local
@@ -47,8 +49,8 @@ chmod +x /etc/rc.d/rc.local
 ok</pre>
 <p>
 <li>四、前端面板需要修改配置文件：
-<br>①需要把里面的网站路径目录修改成你自己的
-<br>" --web-dir=/www/wwwroot/test.com "
+<br>①需要把run_ss.sh里面的网站路径目录修改成你自己的" --web-dir=/www/wwwroot/test.com "
+<br>
 <pre>vi /home/ServerStatus/run_ss.sh </pre>  
 <br> 启动前端面板新进程命令（后台运行）：          
 <pre>nohup bash /home/ServerStatus/run_ss.sh >/dev/null 2>&1 &</pre>.
@@ -62,10 +64,10 @@ ok</pre>
 <pre>vi /home/ServerStatus/server/config.json</pre>
 <pre>		{
 			"username": "s02",  #后端连接用户名，前后端要一致
-			"name": "node2",   #节点名称
+			"name": "WEB001号",   #节点名称
 			"type": "xen",   #虚拟化加构 ovz  kvm   xen 之类的
 			"host": "host2",   #主机位置排序，按顺序增加如：节点2修改为 host2;节点3修改为 host3
-			"location": "cn",  #位置
+			"location": "阿里云香港",  #位置
 			"password": "USER_DEFAULT_PASSWORD"    #后端节点连接密码，前端后端密码要一致
 		},</pre>
 <br> 查看所有进程信息：
@@ -74,10 +76,8 @@ ok</pre>
 <pre>kill 1234</pre>   命令间有空格然后加所属的进程ID号
 <br> 查看指定进程：
 <pre>ps 1234</pre>   命令间有空格然后加所属的进程ID号
-<br>
-<br> 都检查完没问题了就可以启动进程了输入你的网址查看了。如果方便的话最好能重启看看自动加载是否成功。如果前端服务器也装有后端，别忘了启动后端。
 <p>
-<li>五、其它后端节点安装方法,复制下面命令</li>
+<li>六、其它后端节点安装方法,复制下面命令</li>
 <p>
 <pre>timedatectl set-timezone Asia/Shanghai
 rpm -Uvh http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
