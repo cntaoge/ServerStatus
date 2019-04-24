@@ -21,12 +21,9 @@ PHP 7.0 （如果不架其它站点不装也可以）
 phpmyadmin (不装数据库的话这个也可以不用装)
 极速安装
 <li>三、在宝塔面板上建立站点如：test.com  我以这个域名为例，宝塔里建好的站点路径为/www/wwwroot/test.com你可以根据自己的站点路径进行修改下面命令里的网站路径,修改完路径后直接复制粘贴就行了</li>
-把下面的命令全部复制到记事本里进行编辑，把三处网站的路径修改成你自己的。修改好之后粘贴到SSH客户端命令行上。
+把下面的命令全部复制到记事本里进行编辑，把三处网站的路径/www/wwwroot/test.com修改成你自己的。修改好之后粘贴到SSH客户端命令行上。
 <pre>timedatectl set-timezone Asia/Shanghai
-rpm -Uvh http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
-yum update
 yum install git -y
-yum install golang -y
 cd /home
 git clone -b master https://github.com/cntaoge/ServerStatus.git
 chmod -R 755 /home/ServerStatus/
@@ -34,13 +31,14 @@ cd ServerStatus/server
 make
 firewall-cmd --zone=public --add-port=35601/tcp --permanent 
 firewall-cmd --reload
-\cp -rf /home/ServerStatus/web/* /www/wwwroot/test.com   #(★需要把里面的网站路径目录修改成你自己的)
-chown -R www:www /www/wwwroot/test.com    #(★需要把里面的网站路径目录修改成你自己的)
-chmod -R a+x /www/wwwroot/test.com     #(★需要把里面的网站路径目录修改成你自己的)
+\cp -rf /home/ServerStatus/web/* /www/wwwroot/test.com
+chown -R www:www /www/wwwroot/test.com
+chmod -R a+x /www/wwwroot/test.com
 echo "nohup bash /home/ServerStatus/run_ss.sh >/dev/null 2>&1 &" >>/etc/rc.d/rc.local
 chmod +x /etc/rc.d/rc.local
 echo "nohup python /home/ServerStatus/clients/client-linux.py >/dev/null 2>&1 &" >>/etc/rc.d/rc.local
-chmod +x /etc/rc.d/rc.local#
+chmod +x /etc/rc.d/rc.local
+vi /home/ServerStatus/run_ss.sh
 </pre>
 <li>四、前端面板需要修改配置文件：
 ①需要把run_ss.sh里面的网站路径目录修改成你自己的" --web-dir=/www/wwwroot/test.com "
@@ -82,11 +80,11 @@ chmod +x /etc/rc.d/rc.local
 vi /home/ServerStatus/clients/client-linux.py</pre>
 <li>二、修改节点的配置文件里的SERVER =为你主控端服务器的IP地址及节点的用户名、密码</li>
 <pre>vi /home/ServerStatus/clients/client-linux.py</pre>
-<code>SERVER = "127.0.0.1"    #前端面板服务器IP地址或者域名
+<pre>SERVER = "127.0.0.1"    #前端面板服务器IP地址或者域名
 PORT = 35601      #前端面板服务器设置的监听端口
 USER = "s02"    #前端面板里为这台后端节点分配的用户名
 PASSWORD = "USER_DEFAULT_PASSWORD"    #前端面板里为这台后端节点分配的密码
-</code>	
+</pre>	
 设置完成 ESC + :  wq 回车存盘退出
 <节点配置完连接参数后，这里你可以选择重启或者直接运行程序，不过我建议是重启检验一下开机启动是否设置成功。启动进程，在面板上就会显示出来了
 <启动后端节点新进程命令（后台运行）： 
