@@ -53,7 +53,7 @@ ok</pre>
 <br>
 <pre>vi /home/ServerStatus/run_ss.sh </pre>  
 <br> 启动前端面板新进程命令（后台运行）：          
-<pre>nohup bash /home/ServerStatus/run_ss.sh >/dev/null 2>&1 &</pre>.
+<pre>nohup bash /home/ServerStatus/run_ss.sh >/dev/null 2>&1 &</pre>
 <br> 启动本机监控进程命令（后台运行）： 
 <pre>nohup python /home/ServerStatus/clients/client-linux.py >/dev/null 2>&1 &</pre>
 <br> 到这里，你可以使用你的站点域名进行访问了：http://你绑定的域名
@@ -70,6 +70,8 @@ ok</pre>
 			"location": "阿里云香港",  #位置
 			"password": "USER_DEFAULT_PASSWORD"    #后端节点连接密码，前端后端密码要一致
 		},</pre>
+<br>
+<br>修改前端面板服务器端的配置文件/server/config.json 后需要重启服务器才能生效。比如新增加后端客户机节点、修改节点名称密码等。所以最好你一次修改完。一次重启就够了，否则你先使用调试命令<pre>bash /home/ServerStatus/run_ss.sh</pre>，随时ctrl+c 中止，不修改了再启用常驻进程命令<pre>nohup bash /home/ServerStatus/run_ss.sh >/dev/null 2>&1 &</pre>
 <br> 查看所有进程信息：
 <pre>ps e -A</pre>    命令间有空格，大小写之区别
 <br> 终止进程：
@@ -77,21 +79,20 @@ ok</pre>
 <br> 查看指定进程：
 <pre>ps 1234</pre>   命令间有空格然后加所属的进程ID号
 <p>
-<li>六、其它后端节点安装方法,复制下面命令</li>
+	【客户端】：
+<li>一、客户端(后端)节点安装方法,直接复制下面命令到SSH客户端命令行里</li>
 <p>
 <pre>timedatectl set-timezone Asia/Shanghai
 rpm -Uvh http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
-yum update
 yum install git -y
-yum install golang -y
 cd /home
 git clone -b master https://github.com/cntaoge/ServerStatus.git
 chmod -R 755 /home/ServerStatus/
 echo "nohup python /home/ServerStatus/clients/client-linux.py >/dev/null 2>&1 &" >>/etc/rc.d/rc.local
 chmod +x /etc/rc.d/rc.local
-ok</pre>
+vi /home/ServerStatus/clients/client-linux.py</pre>
 <p>
-<br>修改为你主控端服务器的IP地址及二号节点的用户名、密码
+<li>二、修改节点的配置文件里的SERVER =为你主控端服务器的IP地址及节点的用户名、密码</li>
 <br>
 <pre>vi /home/ServerStatus/clients/client-linux.py</pre>
 <p>
@@ -105,15 +106,10 @@ ok</pre>
 <br> 节点配置完连接参数后，这里你可以选择重启或者直接运行程序，不过我建议是重启检验一下开机启动是否设置成功。启动进程，在面板上就会显示出来了
 <br> 启动后端节点新进程命令（后台运行）： 
 <pre>nohup python /home/ServerStatus/clients/client-linux.py >/dev/null 2>&1 &</pre>
+<li>三、其它相关说明：</li>
+<p>
 <br> 调试监控状态可直接使用命令，ctrl+c 中止：
 <pre>python /home/ServerStatus/clients/client-linux.py</pre>
-<br> 查看所有进程信息：    命令间有空格，大小写之区别
-<pre>ps e -A</pre>
-<br> 终止进程：  命令间有空格然后加所属的进程ID号
-<pre>kill 1234</pre> 
-<br> 查看指定进程：命令间有空格然后加所属的进程ID号
-<pre>ps 1234</pre>   
-<br>
 
 # 相关开源项目，感谢： 
 * cppla：https://github.com/cppla/ServerStatus
