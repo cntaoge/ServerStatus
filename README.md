@@ -46,31 +46,28 @@ echo "nohup python /home/ServerStatus/clients/client-linux.py >/dev/null 2>&1 &"
 chmod +x /etc/rc.d/rc.local
 ok</pre>
 <p>
-<li>四、共有3处需要修改配置文件：
+<li>四、前端面板需要修改配置文件：
 <br>①需要把里面的网站路径目录修改成你自己的
-<br>
+<br>" --web-dir=/www/wwwroot/test.com "
 <pre>vi /home/ServerStatus/run_ss.sh </pre>  
-<br>
-<br>②前端面板 服务器配置文件 s01为本机、依次添加修改，username 名称不能与其它节点相同。
-<p> 
+<br> 启动前端面板新进程命令（后台运行）：          
+<pre>nohup bash /home/ServerStatus/run_ss.sh >/dev/null 2>&1 &</pre>.
+<br> 启动本机监控进程命令（后台运行）： 
+<pre>nohup python /home/ServerStatus/clients/client-linux.py >/dev/null 2>&1 &</pre>
+<br> 到这里，你可以使用你的站点域名进行访问了：http://你绑定的域名
+<li>五、前端面板配置其它说明：
+<br>调试前时可直接使用调试命令，用ctrl+c 中止：   
+<pre>bash /home/ServerStatus/run_ss.sh</pre>
+<br>前端面板 服务器配置文件 s01为本机、依次添加修改，username 名称不能与其它节点相同。
 <pre>vi /home/ServerStatus/server/config.json</pre>
-<p>
 <pre>		{
-			"username": "s01",  #后端连接用户名，前后端要一致
-			"name": "node1",   #节点名称
+			"username": "s02",  #后端连接用户名，前后端要一致
+			"name": "node2",   #节点名称
 			"type": "xen",   #虚拟化加构 ovz  kvm   xen 之类的
-			"host": "host1",   #主机位置排序，按顺序增加如：节点2修改为 host2;节点3修改为 host3
+			"host": "host2",   #主机位置排序，按顺序增加如：节点2修改为 host2;节点3修改为 host3
 			"location": "cn",  #位置
 			"password": "USER_DEFAULT_PASSWORD"    #后端节点连接密码，前端后端密码要一致
 		},</pre>
-<p>
-<br>③后端节点配置文件（服务器端本机的监控配置）（具体要修改配置文件里的什么内容看下面的后端节点配置说明）
-<pre>vi /home/ServerStatus/clientsclient-linux.py</pre>
-<p>
-<br> 启动前端面板新进程命令（后台运行）：          
-<pre>nohup bash /home/ServerStatus/run_ss.sh >/dev/null 2>&1 &</pre>
-<br> 调试监控状态可直接使用命令，用ctrl+c 中止：   
-<pre>bash /home/ServerStatus/run_ss.sh</pre>
 <br> 查看所有进程信息：
 <pre>ps e -A</pre>    命令间有空格，大小写之区别
 <br> 终止进程：
@@ -100,7 +97,7 @@ ok</pre>
 <p>
 <br>SERVER = "127.0.0.1"    #前端面板服务器IP地址或者域名
 <br>PORT = 35601      #前端面板服务器设置的监听端口
-<br>USER = "s01"    #前端面板里为这台后端节点分配的用户名
+<br>USER = "s02"    #前端面板里为这台后端节点分配的用户名
 <br>PASSWORD = "USER_DEFAULT_PASSWORD"    #前端面板里为这台后端节点分配的密码
 <p>
 <br>设置完成 ESC + :  wq 回车存盘退出
