@@ -23,23 +23,15 @@ phpmyadmin (不装数据库的话这个也可以不用装)
 把下面的命令全部复制到记事本里进行编辑，把三处网站的路径/www/wwwroot/test.com修改成你自己的。修改好之后粘贴到SSH客户端命令行上。
 <pre>
 timedatectl set-timezone Asia/Shanghai
-yum -y install python-pip
-yum -y install python-devel
-yum -y install git
-yum -y install epel-release
-yum -y install wget
-yum -y install make
+yum -y install epel-release gcc git wget make
 cd /home
 git clone -b master https://github.com/cntaoge/ServerStatus.git
-chmod -R 777 /home/ServerStatus/
+chmod -R 755 /home/ServerStatus/
 cd ServerStatus/server
 make
 firewall-cmd --zone=public --add-port=35601/tcp --permanent 
 firewall-cmd --reload
-chmod -R 777 /www/wwwroot/test.com
 \cp -rf /home/ServerStatus/web/* /www/wwwroot/test.com
-chown -R www:www /www/wwwroot/test.com
-chmod -R a+x /www/wwwroot/test.com
 echo "nohup bash /home/ServerStatus/run_ss.sh >/dev/null 2>&1 &" >>/etc/rc.d/rc.local
 chmod +x /etc/rc.d/rc.local
 echo "nohup python /home/ServerStatus/clients/client-linux.py >/dev/null 2>&1 &" >>/etc/rc.d/rc.local
