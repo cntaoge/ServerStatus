@@ -3,7 +3,6 @@
 * 在线演示：https://tz.cloudcpp.com    
 本人交流联系方法在主站上：www.gxnnhxy.com
 # 目录介绍：
-* autodeploy    自动部署
 * clients       客户端文件
 * server        服务端文件
 * web           网站文件  
@@ -22,15 +21,22 @@ phpmyadmin (不装数据库的话这个也可以不用装)
 极速安装
 <li>三、在宝塔面板上建立站点如：test.com  我以这个域名为例，宝塔里建好的站点路径为/www/wwwroot/test.com你可以根据自己的站点路径进行修改下面命令里的网站路径,修改完路径后直接复制粘贴就行了</li>
 把下面的命令全部复制到记事本里进行编辑，把三处网站的路径/www/wwwroot/test.com修改成你自己的。修改好之后粘贴到SSH客户端命令行上。
-<pre>timedatectl set-timezone Asia/Shanghai
-yum install git -y
+<pre>
+timedatectl set-timezone Asia/Shanghai
+yum -y install python-pip
+yum -y install python-devel
+yum -y install git
+yum -y install epel-release
+yum -y install wget
+yum -y install make
 cd /home
 git clone -b master https://github.com/cntaoge/ServerStatus.git
-chmod -R 755 /home/ServerStatus/
+chmod -R 777 /home/ServerStatus/
 cd ServerStatus/server
 make
 firewall-cmd --zone=public --add-port=35601/tcp --permanent 
 firewall-cmd --reload
+chmod -R 777 /www/wwwroot/test.com
 \cp -rf /home/ServerStatus/web/* /www/wwwroot/test.com
 chown -R www:www /www/wwwroot/test.com
 chmod -R a+x /www/wwwroot/test.com
@@ -68,16 +74,24 @@ vi /home/ServerStatus/run_ss.sh
 <pre>kill 1234</pre>   命令间有空格然后加所属的进程ID号
 ⑥查看指定进程：
 <pre>ps 1234</pre>   命令间有空格然后加所属的进程ID号
-【客户端】：
+<p>
+【客户端】（客户端程序在ServerStatus/clients下）：
+	注意：CentOS6系统默认的Python版本是2.6，版本太低，使用客户端会出问题，请升级Python或者更换7.x版本系统。
 <li>一、客户端(后端)节点安装方法,直接复制下面命令到SSH客户端命令行里</li>
-<pre>timedatectl set-timezone Asia/Shanghai
-yum install git -y
+<pre>
+timedatectl set-timezone Asia/Shanghai
+yum install wget -y
 cd /home
-git clone -b master https://github.com/cntaoge/ServerStatus.git
-chmod +x /home/ServerStatus/clients/client-linux.py
+mkdir ServerStatus
+cd ServerStatus
+mkdir clients
+cd clients
+wget --no-check-certificate -qO client-linux.py 'https://raw.github.com/cntaoge/ServerStatus/master/clients/client-linux.py'
+chmod -R 755 /home/ServerStatus/clients/client-linux.py
 echo "nohup python /home/ServerStatus/clients/client-linux.py >/dev/null 2>&1 &" >>/etc/rc.d/rc.local
 chmod +x /etc/rc.d/rc.local
-vi /home/ServerStatus/clients/client-linux.py</pre>
+vi /home/ServerStatus/clients/client-linux.py
+</pre>
 <li>二、修改节点的配置文件里的SERVER =为你主控端服务器的IP地址及节点的用户名、密码</li>
 <pre>vi /home/ServerStatus/clients/client-linux.py</pre>
 <pre>SERVER = "127.0.0.1"    #前端面板服务器IP地址或者域名
