@@ -12,15 +12,15 @@
 <li>一、先安装宝塔或者其它WEB应用，我这里的安装环境是CENTOS 7.X MINI安装，如果已经在架好站点在使用中了，可以直接跳过此步骤。在这以宝塔面板为例：</li>
 <pre>yum install -y wget && wget -O install.sh http://download.bt.cn/install/install_6.0.sh && bash install.sh</pre></br>
 <li>二、配置WEB应用：</li>
-LNMP 模式
-Nginx 1.15 （必装）
-Ftpd (可不装)
-MySQL 5.6 (如果不架其它站点数据库也可以不用装)
-PHP 7.0 （如果不架其它站点不装也可以）
-phpmyadmin (不装数据库的话这个也可以不用装)
-极速安装
-<li>三、在宝塔面板上建立站点如：test.com  我以这个域名为例，宝塔里建好的站点路径为/www/wwwroot/test.com你可以根据自己的站点路径进行修改下面命令里的网站路径,修改完路径后直接复制粘贴就行了</li>
-把下面的命令全部复制到记事本里进行编辑，把三处网站的路径/www/wwwroot/test.com修改成你自己的。修改好之后粘贴到SSH客户端命令行上。
+<br>LNMP 模式
+<br>Nginx 1.15 （必装）
+<br>Ftpd (可不装)
+<br>MySQL 5.6 (如果不架其它站点数据库也可以不用装)
+<br>PHP 7.0 +（如果不架其它站点不装也可以）
+<br>phpmyadmin (不装数据库的话这个也可以不用装)
+<br>极速安装
+<li>三、在宝塔面板上建立站点如：test.com  我以这个域名为例,宝塔里建好的站点路径为/www/wwwroot/test.com你可以根据自己的站点路径进行修改下面命令里的网站路径,修改完路径后直接复制粘贴就行了</li>
+<br>把下面的命令全部复制到记事本里进行编辑，把三处网站的路径/www/wwwroot/test.com修改成你自己的。修改好之后粘贴到SSH客户端命令行上。
 <pre>
 timedatectl set-timezone Asia/Shanghai
 yum -y install epel-release gcc git wget make
@@ -39,17 +39,17 @@ chmod +x /etc/rc.d/rc.local
 vi /home/ServerStatus/run_ss.sh
 </pre>
 <li>四、前端面板需要修改配置文件：
-①需要把run_ss.sh里面的网站路径目录修改成你自己的" --web-dir=/www/wwwroot/test.com "
+<br>①需要把run_ss.sh里面的网站路径目录修改成你自己的" --web-dir=/www/wwwroot/test.com "
 <pre>vi /home/ServerStatus/run_ss.sh </pre>  
-②启动前端面板新进程命令（后台运行）：          
+<br>②启动前端面板新进程命令（后台运行）：          
 <pre>nohup bash /home/ServerStatus/run_ss.sh >/dev/null 2>&1 &</pre>
-③启动本机监控进程命令（后台运行）： 
+<br>③启动本机监控进程命令（后台运行）： 
 <pre>nohup python /home/ServerStatus/clients/client-linux.py >/dev/null 2>&1 &</pre>
-④到这里，你可以使用你的站点域名进行访问了：http://你绑定的域名
+<br>④到这里，你可以使用你的站点域名进行访问了：http://你绑定的域名
 <li>五、前端面板配置其它说明：
-①调试前时可直接使用调试命令，用ctrl+c 中止：   
+<br>①调试前时可直接使用调试命令，用ctrl+c 中止：   
 <pre>bash /home/ServerStatus/run_ss.sh</pre>	
-②前端面板服务器配置文件 s01为本机、依次添加修改，username 名称不能与其它节点相同。
+<br>②前端面板服务器配置文件 s01为本机、依次添加修改，username 名称不能与其它节点相同。
 <pre>vi /home/ServerStatus/server/config.json</pre>
 <pre>		{
 			"username": "s02",  #后端连接用户名，前后端要一致
@@ -59,16 +59,16 @@ vi /home/ServerStatus/run_ss.sh
 			"location": "阿里云香港",  #位置
 			"password": "USER_DEFAULT_PASSWORD"    #后端节点连接密码，前端后端密码要一致
 		},</pre>
-③修改前端面板服务器端的配置文件/server/config.json 后需要重启服务器才能生效。比如新增加后端客户机节点、修改节点名称密码等。所以最好你一次修改完。一次重启就够了，否则你先使用调试命令<pre>bash /home/ServerStatus/run_ss.sh</pre>，随时ctrl+c 中止，不修改了再启用常驻进程命令<pre>nohup bash /home/ServerStatus/run_ss.sh >/dev/null 2>&1 &</pre>
-④查看所有进程信息：
+<br>③修改前端面板服务器端的配置文件/server/config.json 后需要重启服务器才能生效。比如新增加后端客户机节点、修改节点名称密码等。所以最好你一次修改完。一次重启就够了，否则你先使用调试命令<pre>bash /home/ServerStatus/run_ss.sh</pre>，随时ctrl+c 中止，不修改了再启用常驻进程命令<pre>nohup bash /home/ServerStatus/run_ss.sh >/dev/null 2>&1 &</pre>
+<br>④查看所有进程信息：
 <pre>ps e -A</pre>    命令间有空格，大小写之区别
-⑤终止进程：
+<br>⑤终止进程：
 <pre>kill 1234</pre>   命令间有空格然后加所属的进程ID号
-⑥查看指定进程：
+<br>⑥查看指定进程：
 <pre>ps 1234</pre>   命令间有空格然后加所属的进程ID号
 <p>
 【客户端】（客户端程序在ServerStatus/clients下）：
-	注意：CentOS6系统默认的Python版本是2.6，版本太低，使用客户端会出问题，请升级Python或者更换7.x版本系统。
+<br>注意：CentOS6系统默认的Python版本是2.6，版本太低，使用客户端会出问题，请升级Python或者更换7.x版本系统。
 <li>一、客户端(后端)节点安装方法,直接复制下面命令到SSH客户端命令行里</li>
 <pre>
 timedatectl set-timezone Asia/Shanghai
@@ -92,8 +92,8 @@ USER = "s02"    #前端面板里为这台后端节点分配的用户名
 PASSWORD = "USER_DEFAULT_PASSWORD"    #前端面板里为这台后端节点分配的密码
 </pre>	
 设置完成 ESC + :  wq 回车存盘退出
-<节点配置完连接参数后，这里你可以选择重启或者直接运行程序，不过我建议是重启检验一下开机启动是否设置成功。启动进程，在面板上就会显示出来了
-<启动后端节点新进程命令（后台运行）： 
+<br>节点配置完连接参数后，这里你可以选择重启或者直接运行程序，不过我建议是重启检验一下开机启动是否设置成功。启动进程，在面板上就会显示出来了
+<br>启动后端节点新进程命令（后台运行）： 
 <pre>nohup python /home/ServerStatus/clients/client-linux.py >/dev/null 2>&1 &</pre>
 <li>三、其它相关说明：</li>
 调试监控状态可直接使用命令，ctrl+c 中止：
