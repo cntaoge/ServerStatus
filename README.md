@@ -20,7 +20,7 @@
 <br>phpmyadmin (不装数据库的话这个也可以不用装)
 <br>极速安装
 <li>三、在宝塔面板上建立站点如：test.com  我以这个域名为例,宝塔里建好的站点路径为/www/wwwroot/test.com你可以根据自己的站点路径进行修改下面命令里的网站路径,修改完路径后直接复制粘贴就行了</li>
-<br>把下面的命令全部复制到记事本里进行编辑，把三处网站的路径/www/wwwroot/test.com修改成你自己的。修改好之后粘贴到SSH客户端命令行上。
+<br>把下面的命令全部复制到记事本里进行编辑，把网站的路径/www/wwwroot/test.com修改成你自己的。修改好之后粘贴到SSH客户端命令行上。
 <pre>
 timedatectl set-timezone Asia/Shanghai
 yum -y install epel-release gcc git wget make
