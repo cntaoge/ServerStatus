@@ -1,13 +1,12 @@
 # ServerStatus中文版：   
 * ServerStatus中文版是一个酷炫高逼格的云探针、云监控、服务器云监控、多服务器探针~。
-* 在线演示：https://tz.cloudcpp.com    
+* 在线演示：http://ol.gxnnhxy.com    
 本人交流联系方法在主站上：www.gxnnhxy.com
 # 目录介绍：
 * clients       客户端文件
 * server        服务端文件
 * web           网站文件  
-# 更新说明：
-* 20190424, cntaoge 修改安装流程命令                        
+<br>                     
 【服务端】：
 <li>一、先安装宝塔或者其它WEB应用，我这里的安装环境是CENTOS 7.X MINI安装，如果已经在架好站点在使用中了，可以直接跳过此步骤。在这以宝塔面板为例：</li>
 <pre>yum install -y wget && wget -O install.sh http://download.bt.cn/install/install_6.0.sh && bash install.sh</pre></br>
