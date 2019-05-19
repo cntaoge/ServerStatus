@@ -1,7 +1,7 @@
 # ServerStatus中文版：   
 * ServerStatus中文版是一个酷炫高逼格的云探针、云监控、服务器云监控、多服务器探针~。
 * 在线演示：http://ol.eaavps.com 
-* 程序交流网站：https://www.eaavps.com 
+* 欧美亚VPS推荐网交流：https://www.eaavps.com
 
 # 目录介绍：
 * clients       客户端文件
