@@ -73,7 +73,6 @@ vi /home/ServerStatus/run_ss.sh
 <li>一、客户端(后端)节点安装方法,直接复制下面命令到SSH客户端命令行里</li>
 <pre>
 timedatectl set-timezone Asia/Shanghai
-yum install wget -y
 cd /home
 mkdir ServerStatus
 cd ServerStatus
