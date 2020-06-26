@@ -138,10 +138,10 @@ function uptime() {
 			// Ipstatus
 			if (result.servers[i].ip_status) {
 				TableRow.children["ip_status"].children[0].children[0].className = "progress-bar progress-bar-success";
-				TableRow.children["ip_status"].children[0].children[0].innerHTML = "<small>联线</small>";
+				TableRow.children["ip_status"].children[0].children[0].innerHTML = "<small>MH361</small>";
 			} else {
 				TableRow.children["ip_status"].children[0].children[0].className = "progress-bar progress-bar-danger";
-				TableRow.children["ip_status"].children[0].children[0].innerHTML = "<small>失联</small>";
+				TableRow.children["ip_status"].children[0].children[0].innerHTML = "<small>MH370</small>";
 			}
 
 			// Name
@@ -194,19 +194,19 @@ function uptime() {
 
 				// Network
 				var netstr = "";
-				if(result.servers[i].network_rx < 1000)
+				if(result.servers[i].network_rx < 1024)
 					netstr += result.servers[i].network_rx.toFixed(0) + "B";
-				else if(result.servers[i].network_rx < 1000*1000)
-					netstr += (result.servers[i].network_rx/1000).toFixed(0) + "K";
+				else if(result.servers[i].network_rx < 1024*1024)
+					netstr += (result.servers[i].network_rx/1024).toFixed(0) + "K";
 				else
-					netstr += (result.servers[i].network_rx/1000/1000).toFixed(1) + "M";
+					netstr += (result.servers[i].network_rx/1024/1024).toFixed(1) + "M";
 				netstr += " | "
-				if(result.servers[i].network_tx < 1000)
+				if(result.servers[i].network_tx < 1024)
 					netstr += result.servers[i].network_tx.toFixed(0) + "B";
-				else if(result.servers[i].network_tx < 1000*1000)
-					netstr += (result.servers[i].network_tx/1000).toFixed(0) + "K";
+				else if(result.servers[i].network_tx < 1024*1024)
+					netstr += (result.servers[i].network_tx/1024).toFixed(0) + "K";
 				else
-					netstr += (result.servers[i].network_tx/1000/1000).toFixed(1) + "M";
+					netstr += (result.servers[i].network_tx/1024/1024).toFixed(1) + "M";
 				TableRow.children["network"].innerHTML = netstr;
 
 				//Traffic
