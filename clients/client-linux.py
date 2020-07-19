@@ -5,6 +5,7 @@
 # 支持操作系统： Linux, OSX, FreeBSD, OpenBSD and NetBSD, both 32-bit and 64-bit architectures
 # 时间: 20200407
 # 说明: 默认情况下修改server和user就可以了。丢包率监测方向可以自定义，例如：CU = "www.facebook.com"。
+# 修改了ping监控的地址为自己的本地的广西联通、电信、移动的地址
 
 SERVER = "127.0.0.1"
 USER = "s01"
@@ -15,9 +16,9 @@ PORT = 35601
 PASSWORD = "USER_DEFAULT_PASSWORD"
 INTERVAL = 1
 PORBEPORT = 80
-CU = "cu.tz.cloudcpp.com"
-CT = "ct.tz.cloudcpp.com"
-CM = "cm.tz.cloudcpp.com"
+CU = "221.7.128.68"
+CT = "gx.189.cn"
+CM = "gx.10086.cn"
 
 import socket
 import time
