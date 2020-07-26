@@ -9,7 +9,7 @@
 * server        服务端文件
 * web           网站文件  
 <br>                     
-【服务前端主控】：
+            【服务前端主控】：
 <li>一、先安装宝塔或者其它WEB应用，我这里的安装环境是CENTOS 7.X MINI安装，如果已经在架好站点在使用中了，可以直接跳过此步骤。在这以宝塔面板为例：</li>
 <pre>yum install -y wget && wget -O install.sh http://download.bt.cn/install/install_6.0.sh && bash install.sh</pre></br>
 <li>二、配置WEB应用：</li>
@@ -67,10 +67,10 @@ vi /home/ServerStatus/run_ss.sh
 <pre>kill 1234</pre> 
 <br>⑥查看指定进程：   命令间有空格然后加所属的进程ID号
 <pre>ps 1234</pre>
-<p>
-	
+<p>      
+
 【后端节点】（后端节点程序在ServerStatus/clients下）：
-<p>
+
 <br>注意：CentOS6系统默认的Python版本是2.6，版本太低，使用后端节点会出问题，请升级Python或者更换7.x版本系统。
 <li>一、后端节点安装方法,直接复制下面命令到SSH客户端命令行里</li>
 <pre>
